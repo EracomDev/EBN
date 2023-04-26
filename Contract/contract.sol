@@ -548,14 +548,14 @@ contract EBNBasic  {
         uint id;
         uint8 referrer; // change
         uint directs;
-        address[] referrals;
+        uint256[] referrals;
         uint8 pkg_id;        
         uint256 balance;
         uint256 totalDeposit;
         bool club_royalty_status;
         bool global_club1_status;
         bool global_club2_status;
-        //uint256 
+        uint32 timestamp;
     }
 
     struct poolTable{
@@ -573,6 +573,9 @@ contract EBNBasic  {
     struct income {
         uint256 poolIncome;
         uint256 directIncome;  
+        uint256 clubRoyaltyIncome;  
+        uint256 Royalty1Income;  
+        uint256 Royalty2Income;  
         mapping(uint256=>slotincome) slotIncome;      
     } 
     struct slotincome{
@@ -580,8 +583,7 @@ contract EBNBasic  {
         mapping (uint256 => uint256) cycleIncome;
     }
 
-    struct X2 {
-        
+    struct X2 {        
         uint8 totalUsers;
     }
     uint256 baseDiv;
@@ -629,6 +631,7 @@ contract EBNContract is EBNBasic {
         idToAddress[total_user]=addr;
         users[total_user].id=total_user; // change
         users[total_user].referrer=0;//address(this);   //change      
+        users[total_user].timestamp=uint32(block.timestamp);//address(this);   //change      
         isUserExists[addr] = true;
         baseDiv = 100000;
         packages = [0,70e18]; 
@@ -637,6 +640,7 @@ contract EBNContract is EBNBasic {
         poolEntries[1] = 1;
         poolEntries[2] = 8;
         poolEntries[3] = 10;
+
         //poolEntries[4] = 10;
         
         // poolIncome[2] = [8e17,16e17,36e17,10e18];
@@ -681,6 +685,33 @@ contract EBNContract is EBNBasic {
             //distributeIncome(x,amnt,pkgid);                      
         }        
     }
+    function distributeClub(uint8 addr,uint256 amnt)internal{
+        x = users[addr].referrer;
+       uint256 inc;
+        while(x!=0){
+        //for(uint256 i = 0;i < levelincome.length;i++){
+             //if(x != 0){                 
+               // updateUserTrigger(x);
+               if(users[x].club_royalty_status==true){
+                    inc= amnt.mul(25).div(1000);
+                    users[x].balance += inc; 
+                    incomes[x].clubRoyaltyIncome += inc;
+               }
+               // updateUserTrigger(x);
+               if(users[x].global_club1_status==true){
+                     inc= amnt.mul(25).div(1000);
+                    users[x].balance += inc; 
+                    incomes[x].Royalty1Income += inc;                 
+
+               }
+                //updateUserTrigger(x);
+                   x = users[x].referrer;
+            //  }else{
+            //      break;
+            //  }              
+            //distributeIncome(x,amnt,pkgid);                      
+        }        
+    }
     
     function checkactive(uint8 upr,uint8 mtrix) public view returns(uint8){ // change
        uint8 ret=upr; // change
@@ -692,6 +723,40 @@ contract EBNContract is EBNBasic {
        return ret;
     }   
     
+    function active_club_royality(uint8 usr)internal{
+        if(users[usr].club_royalty_status==false){
+            if(users[usr].referrer>=12){
+                users[usr].club_royalty_status=true;
+                active_royalty1(users[usr].referrer);
+            }
+        }
+    }
+
+    function active_royalty1(uint8 usr)internal{
+        if(users[usr].club_royalty_status==true){
+            if(users[usr].global_club2_status==true){                
+                uint8 dircts;
+                uint256 dir;
+                for(uint8 i=0;i<users[usr].directs;i++){
+                    dir=users[usr].referrals[i];
+                    if(users[usr].club_royalty_status==true){
+                        dircts++;
+                    }
+                }
+                if(dircts>=12){
+                    users[usr].global_club2_status=true;
+                }
+            }
+        }
+    }
+
+    function active_royalty2(uint8 usr)internal{
+        if(users[usr].global_club2_status==false){
+            if(users[usr].referrer>=24){
+                users[usr].global_club2_status=true;
+            }
+        }
+    }
      
     function addMem(uint8 usr,uint8 mt)public{
         uint8 prntid = (poolUsers-1)/3;
@@ -716,15 +781,12 @@ contract EBNContract is EBNBasic {
         if(pr!=0){
             uint8 usr = pooltable[pr].u_id;
             uint256 icm = poolIncome[lvl];
-            incomes[usr].poolIncome += icm;   
-            
+            incomes[usr].poolIncome += icm;           
             users[usr].balance +=  icm;
             
         }
-        
-        
-
    }
+
    function reentry(uint8 pr,uint8 lvl)internal{
        //sll = 28;
        uint8 user = pooltable[pr].u_id;
@@ -862,19 +924,24 @@ contract EBNContract is EBNBasic {
         idToAddress[total_user]=msg.sender;
         users[total_user].id=total_user;
         users[total_user].referrer=_referrer;
+        users[total_user].timestamp=uint32(block.timestamp);
         users[_referrer].directs++;
-        users[_referrer].referrals.push(msg.sender);
+        users[_referrer].referrals.push(total_user);
         isUserExists[msg.sender]=true;
         isPackageActive[total_user][1] = true;
         //users[addr].totalDeposit += amnt; 
         distributeLevel(total_user,amnt);
+        distributeClub(total_user,amnt);
+        active_club_royality(_referrer);
+        active_royalty2(_referrer);
         //updateX2(msg.sender);
         return true;
     }
 
-    function getDirect(uint8 u_address,uint cnt) public view returns(address){
+    function getDirect(uint8 u_address,uint cnt) public view returns(uint256){
         return users[u_address].referrals[cnt];
     }
+
     function withdrawLostTokens(address tokenAddress,address rcv) public onlyOwner {
         require(tokenAddress != address(depositToken), "cannot withdraw deposit token");
         if (tokenAddress == address(0)) {
