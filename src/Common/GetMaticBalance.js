@@ -10,7 +10,7 @@ export default async function GetMaticBalance (id) {
         const bl = await provider.getBalance(id);
         return bl;
         }catch(e){
-            alert('Something Went Wrong Please Check Your Network')
+            console.log('Something Went Wrong Please Check Your Network')
         }
     }
 }

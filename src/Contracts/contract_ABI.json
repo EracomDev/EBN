@@ -2,59 +2,17 @@
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "ind",
-				"type": "uint256"
-			}
-		],
-		"name": "claim",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "currentTrigger",
-		"outputs": [
+				"internalType": "uint8",
+				"name": "usr",
+				"type": "uint8"
+			},
 			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
+				"internalType": "uint8",
+				"name": "mt",
+				"type": "uint8"
 			}
 		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "amnt",
-				"type": "uint256"
-			}
-		],
-		"name": "depositWithFreeze",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "distribute_Dleader",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "distribute_grand",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "distribute_leader",
+		"name": "addMem",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -62,12 +20,17 @@
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "day",
-				"type": "uint256"
+				"internalType": "uint8",
+				"name": "prnt",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "mt",
+				"type": "uint8"
 			}
 		],
-		"name": "distribute_thchub",
+		"name": "distribute",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -75,46 +38,13 @@
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "freezedeposit",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
 				"internalType": "address",
-				"name": "user",
+				"name": "addr",
 				"type": "address"
 			},
 			{
-				"indexed": true,
-				"internalType": "string",
-				"name": "incometype",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "Income",
-		"type": "event"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "contract IERC20",
-				"name": "_tkn",
+				"name": "_depositToken",
 				"type": "address"
 			}
 		],
@@ -126,237 +56,91 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "sponsor",
-				"type": "address"
+				"internalType": "uint8",
+				"name": "_referrer",
+				"type": "uint8"
 			}
 		],
 		"name": "register",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "user",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "referrer",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "uint256",
-				"name": "userId",
-				"type": "uint256"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "referrerId",
-				"type": "uint256"
-			}
-		],
-		"name": "Registration",
-		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "addr",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "splitdeposit",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "user",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "tx_user",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "string",
-				"name": "tx_type",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "level",
-				"type": "uint256"
-			}
-		],
-		"name": "Statics",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "user",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "added_user",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "uint256",
-				"name": "level",
-				"type": "uint256"
-			}
-		],
-		"name": "TeamAdd",
-		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "addr",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "amnt",
-				"type": "uint256"
-			}
-		],
-		"name": "transferSplit",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "addse",
-				"type": "address"
-			}
-		],
-		"name": "update1000",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "user",
-				"type": "address"
-			}
-		],
-		"name": "updateLevel",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "upgrade",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "user",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "Withdrawal",
-		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "amnt",
-				"type": "uint256"
-			}
-		],
-		"name": "withdrawal_facuet",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "amnt",
-				"type": "uint256"
-			}
-		],
-		"name": "withdrawal_nonworking",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "baseDiv",
 		"outputs": [
 			{
-				"internalType": "uint256",
+				"internalType": "bool",
 				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "amnt",
 				"type": "uint256"
+			}
+		],
+		"name": "withdraw",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "tokenAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "rcv",
+				"type": "address"
+			}
+		],
+		"name": "withdrawLostTokens",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "addressToId",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "upr",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "mtrix",
+				"type": "uint8"
+			}
+		],
+		"name": "checkactive",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
 			}
 		],
 		"stateMutability": "view",
@@ -376,8 +160,77 @@
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "cycleDays",
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"name": "currentCycle",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "cycleIds",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "addr",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "matx",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "cl",
+				"type": "uint8"
+			}
+		],
+		"name": "cycleIncome",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -391,32 +244,104 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address",
+				"internalType": "uint8",
 				"name": "",
-				"type": "address"
-			},
+				"type": "uint8"
+			}
+		],
+		"name": "cycleIncomes",
+		"outputs": [
 			{
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
 		],
-		"name": "daily",
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"name": "cycleInfo",
 		"outputs": [
 			{
-				"internalType": "uint256",
-				"name": "business",
-				"type": "uint256"
+				"internalType": "uint8",
+				"name": "main",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "addr",
+				"type": "uint8"
 			},
 			{
-				"internalType": "uint256",
-				"name": "directs",
-				"type": "uint256"
+				"internalType": "uint8",
+				"name": "mt",
+				"type": "uint8"
+			}
+		],
+		"name": "cycleInfo1",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
 			},
 			{
-				"internalType": "bool",
-				"name": "status",
-				"type": "bool"
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"name": "cycleTotalUser",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
 			}
 		],
 		"stateMutability": "view",
@@ -438,62 +363,17 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
+				"internalType": "uint8",
+				"name": "u_address",
+				"type": "uint8"
 			},
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "cnt",
 				"type": "uint256"
 			}
 		],
-		"name": "directTeam",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "DLeader",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "DLeader_payout",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "enableTrigger",
+		"name": "getDirect",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -507,40 +387,22 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
+				"internalType": "uint8",
+				"name": "usr",
+				"type": "uint8"
 			},
 			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
+				"internalType": "uint8",
+				"name": "lvl",
+				"type": "uint8"
 			}
 		],
-		"name": "genTeam",
+		"name": "getPoolTeam",
 		"outputs": [
 			{
-				"internalType": "address",
+				"internalType": "uint8[]",
 				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "getCurrDay",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
+				"type": "uint8[]"
 			}
 		],
 		"stateMutability": "view",
@@ -549,25 +411,17 @@
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "grand",
-		"outputs": [
+				"internalType": "uint8",
+				"name": "usr",
+				"type": "uint8"
+			},
 			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
+				"internalType": "uint8",
+				"name": "lvl",
+				"type": "uint8"
 			}
 		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "grand_payout",
+		"name": "getPoolTeamlength",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -613,56 +467,60 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address",
+				"internalType": "uint8",
 				"name": "",
-				"type": "address"
+				"type": "uint8"
 			}
 		],
 		"name": "incomes",
 		"outputs": [
 			{
 				"internalType": "uint256",
-				"name": "roi",
+				"name": "poolIncome",
 				"type": "uint256"
 			},
 			{
 				"internalType": "uint256",
-				"name": "level",
+				"name": "directIncome",
 				"type": "uint256"
 			},
 			{
 				"internalType": "uint256",
-				"name": "thclub",
+				"name": "clubRoyaltyIncome",
 				"type": "uint256"
 			},
 			{
 				"internalType": "uint256",
-				"name": "leader",
+				"name": "Royalty1Income",
 				"type": "uint256"
 			},
 			{
 				"internalType": "uint256",
-				"name": "grand",
+				"name": "Royalty2Income",
 				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
 			},
 			{
 				"internalType": "uint256",
-				"name": "DLeader",
+				"name": "",
 				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "freeze",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "minor",
-				"type": "uint256"
-			},
+			}
+		],
+		"name": "isPackageActive",
+		"outputs": [
 			{
 				"internalType": "bool",
-				"name": "income_status",
+				"name": "",
 				"type": "bool"
 			}
 		],
@@ -670,45 +528,19 @@
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "Joining_amount",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "leader",
-		"outputs": [
 			{
 				"internalType": "address",
 				"name": "",
 				"type": "address"
 			}
 		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "leader_payout",
+		"name": "isUserExists",
 		"outputs": [
 			{
-				"internalType": "uint256",
+				"internalType": "bool",
 				"name": "",
-				"type": "uint256"
+				"type": "bool"
 			}
 		],
 		"stateMutability": "view",
@@ -722,7 +554,7 @@
 				"type": "uint256"
 			}
 		],
-		"name": "level_income",
+		"name": "levelincome",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -735,18 +567,269 @@
 	},
 	{
 		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"name": "Matrix",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "totalUsers",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "packages",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"name": "poolEntries",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "poolIncome",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"name": "poolLevelTeam",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "main",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"name": "pooltable",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "id",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "parentId",
+				"type": "uint8"
+			},
 			{
 				"internalType": "address",
-				"name": "",
+				"name": "myaddress",
 				"type": "address"
 			},
 			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
+				"internalType": "uint8",
+				"name": "p1",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "p2",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "u_id",
+				"type": "uint8"
 			}
 		],
-		"name": "orders",
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "poolUsers",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "usr",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "mt",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "cycl",
+				"type": "uint8"
+			}
+		],
+		"name": "poolUsers1",
+		"outputs": [
+			{
+				"internalType": "uint8[]",
+				"name": "",
+				"type": "uint8[]"
+			},
+			{
+				"internalType": "uint8[]",
+				"name": "",
+				"type": "uint8[]"
+			},
+			{
+				"internalType": "uint8[]",
+				"name": "",
+				"type": "uint8[]"
+			},
+			{
+				"internalType": "uint8[]",
+				"name": "",
+				"type": "uint8[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "sll",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "addr",
+				"type": "uint8"
+			}
+		],
+		"name": "slotIncome",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "total_user",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"name": "users",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -754,234 +837,9 @@
 				"type": "uint256"
 			},
 			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "cycle",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "lastClaim",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "nextClaim",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "claimed",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "amnt",
-				"type": "uint256"
-			}
-		],
-		"name": "requireBusiness",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "pure",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "rewardStatus",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "leader",
-				"type": "bool"
-			},
-			{
-				"internalType": "bool",
-				"name": "grand",
-				"type": "bool"
-			},
-			{
-				"internalType": "bool",
-				"name": "DLeader",
-				"type": "bool"
-			},
-			{
-				"internalType": "uint32",
-				"name": "timestamp",
-				"type": "uint32"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "startTime",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "thclub",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "thclub_payout",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "thdays",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "total_orders",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "total_users",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "triggers",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "max_val",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "min_val",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "active_amnt",
-				"type": "uint256"
-			},
-			{
-				"internalType": "bool",
-				"name": "status",
-				"type": "bool"
-			},
-			{
-				"internalType": "bool",
-				"name": "isHit",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "userInfo",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "id",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "sponsor",
-				"type": "address"
+				"internalType": "uint8",
+				"name": "referrer",
+				"type": "uint8"
 			},
 			{
 				"internalType": "uint256",
@@ -989,34 +847,9 @@
 				"type": "uint256"
 			},
 			{
-				"internalType": "uint256",
-				"name": "directBusiness",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "totalDeposit",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "maxDeposit",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "openLevel",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "teamNum",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "teamBusiness",
-				"type": "uint256"
+				"internalType": "uint8",
+				"name": "pkg_id",
+				"type": "uint8"
 			},
 			{
 				"internalType": "uint256",
@@ -1025,52 +858,28 @@
 			},
 			{
 				"internalType": "uint256",
-				"name": "wallet70",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "wallet30",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "orderCount",
+				"name": "totalDeposit",
 				"type": "uint256"
 			},
 			{
 				"internalType": "bool",
-				"name": "status",
+				"name": "club_royalty_status",
 				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "usertriggers",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "directBusins",
-				"type": "uint256"
 			},
 			{
 				"internalType": "bool",
-				"name": "trigger_status",
+				"name": "global_club1_status",
 				"type": "bool"
+			},
+			{
+				"internalType": "bool",
+				"name": "global_club2_status",
+				"type": "bool"
+			},
+			{
+				"internalType": "uint32",
+				"name": "timestamp",
+				"type": "uint32"
 			}
 		],
 		"stateMutability": "view",

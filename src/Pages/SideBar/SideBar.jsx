@@ -46,7 +46,6 @@ const SideBar = () => {
                         <div id="logoDiv" style={{ padding: "0px 10px" }}>
                             <img src={Logo} alt="" />
                             <i onClick={() => setSideToggle("-300px")}><MdClear /></i>
-                            <span></span>
                         </div>
                     </div>
                     <div id="sideItemSection">

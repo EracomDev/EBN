@@ -7,10 +7,12 @@ import SplitAccount from "./Pages/SplitAccount/SplitAccount";
 import LatestDeposit from './Pages/LatestDeposit/LatestDeposit'
 import MyTeam from './Pages/MyTeam/MyTeam'
 import DepositDetails from './Pages/DepositDetails/DepositDetails'
+import ProgramLevel from './Pages/ProgramLevel/ProgramLevel';
+import LevelDetail from './Pages/LevelDetail/LevelDetail';
 const NavPages = () => {
     return (
         <React.Fragment>
-            <section style={{paddingTop:"60px"}}>
+            <section id="parentSection">
                 <Routes>
                     <Route path="/" element={<Dashboard />}></Route>
                     <Route path="/deposit" element={<Deposit />}></Route>
@@ -19,6 +21,8 @@ const NavPages = () => {
                     <Route path="/latest-deposit" element={<LatestDeposit />}></Route>
                     <Route path="/myteam" element={<MyTeam />}></Route>
                     <Route path="/deposit-details" element={<DepositDetails />}></Route>
+                    <Route path="/level" element={<ProgramLevel />}></Route>
+                    <Route path="/level_details" element={<LevelDetail />}></Route>
                      
                 </Routes>
             </section>

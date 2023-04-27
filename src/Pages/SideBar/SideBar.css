@@ -12,8 +12,8 @@
     --three: #FA9F1B;
     --four: #03A9F4;
     --bodybg: #18212B;
+    --loginPrimary: rgb(221, 213, 25);
 }
-
 
 body,
 html {
@@ -21,6 +21,11 @@ html {
     background: linear-gradient(45deg, #12294d, black, #3d1e42) !important;
     height: 100vh;
     overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+    width: 3px !important;
+    height: 1px !important;
 }
 
 
@@ -58,6 +63,10 @@ html {
 @media (max-width: 900px) {
     #logoDiv i {
         display: block;
+    }
+
+    #sidebar {
+        background: linear-gradient(45deg, #0a162a, black, #331937);
     }
 }
 
@@ -215,13 +224,13 @@ html {
     cursor: pointer;
 }
 
-
 a {
     text-decoration: none !important;
 }
 
 #contentSection {
     min-height: 100vh;
+    padding-bottom: 50px;
 }
 
 .topNavRight h3 {
@@ -231,7 +240,6 @@ a {
     align-items: center;
     font-size: 20px;
     display: flex;
-
 }
 
 .setting {
@@ -272,4 +280,10 @@ a {
     transition: 0.5s all;
     top: -100px;
     z-index: 99;
+}
+
+@media (max-width:900px) {
+    .topNav {
+        background: linear-gradient(45deg, black, #3d1e42) !important;
+    }
 }

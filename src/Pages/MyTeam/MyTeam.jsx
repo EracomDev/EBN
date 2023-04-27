@@ -19,7 +19,25 @@ const MyTeam = () => {
     const [loading, setLoading] = useState(false)
     const [minor, setMinor] = useState(0)
     const [acc, setAccount] = useState(localStorage.getItem("viewId"));
+    const { ethereum } = window
+    useEffect(() => {
+        FetchData();
+    }, [])
 
+    async function FetchData() {
+        try {
+            setLoading(true)
+            const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+            setWalletAddress(accounts[0])
+
+            const userData = await UserInfo(acc);
+            setUserInformation(userData)
+            setLoading(false)
+        } catch (e) {
+            setLoading(false)
+            console.log(e)
+        }
+    }
     return (
         <React.Fragment>
             {
@@ -32,15 +50,15 @@ const MyTeam = () => {
                         <p><i><ImLocation2 /></i>Contract Address :</p>
                         <span>{contract}</span>
                     </div>
-                    <div className="detailCard">
+                    {/* <div className="detailCard">
                         <p><i><BiTime /></i>Platform Running time :</p>
                         <span>{TimestampToDate(String(planInfo?.startTime), 1)}</span>
-                    </div>
+                    </div> */}
                     <div className="detailCard">
                         <p><i><ImConnection /></i>Connection status :</p>
                         {
                             walletAddress !== null ?
-                                <span style={{ color: "green" }}>{walletAddress}</span> :
+                                <span style={{ color: "rgb(26, 247, 104)" }}>{walletAddress}</span> :
                                 <span style={{ color: "red" }}>Wallet not Connected.</span>
                         }
                     </div>
@@ -51,33 +69,33 @@ const MyTeam = () => {
                             console.log('userInformation', userInformation)
                         }
                         <Col xs="6" lg="3" id="myTeamCol">
-                            <h1 style={{ color: "#1f818b" }}>{String(userInformation?.userInfo?.directs)}</h1>
+                            <h1 style={{ color: "#1f818b" }}>{String(userInformation?.directs)}</h1>
                             <p>Direct Referrals</p>
                         </Col>
                         <Col xs="6" lg="3" id="myTeamCol">
-                            <h1 style={{ color: "green" }}>{parseFloat(userInformation?.userInfo?.directBusiness / 1e18).toFixed(2)}</h1>
-                            <p>Direct Business </p>
+                            <h1 >{userInformation.club_royalty_status === true ? 'Archive' : 'Pending'}</h1>
+                            <p>Club Royalty Status</p>
                         </Col>
                         <Col xs="6" lg="3" id="myTeamCol">
-                            <h1 style={{ color: "rebeccapurple" }}>{parseFloat(userInformation?.userInfo?.balance / 1e18).toFixed(2)}</h1>
-                            <p>My Income </p>
+                            <h1 >{userInformation.global_club1_status === true ? 'Archive' : 'Pending'}</h1>
+                            <p>Global Club1 Status</p>
                         </Col>
                         <Col xs="6" lg="3" id="myTeamCol">
-                            <h1 style={{ color: "orange" }}>{String(userInformation?.userInfo?.teamNum)}</h1>
-                            <p>Downline</p>
+                            <h1 >{userInformation.global_club2_status === true ? 'Archive' : 'Pending'}</h1>
+                            <p>Global Club2 Status</p>
                         </Col>
                         <Col xs="6" lg="3" id="myTeamCol">
-                            <h1 style={{ color: "blue" }}>{parseFloat(userInformation?.userInfo?.teamBusiness / 1e18).toFixed(2)}</h1>
+                            <h1 style={{ color: "blue" }}>{parseFloat(userInformation?.totalDeposit / 1e18).toFixed(2)}</h1>
                             <p>Sales</p>
                         </Col>
-                        <Col xs="6" lg="3" id="myTeamCol">
-                            <h1 style={{ color: "orange" }}>{String(userInformation?.userInfo?.maxDeposit / 1e18)}</h1>
+                        {/* <Col xs="6" lg="3" id="myTeamCol">
+                            <h1 >{String(userInformation?.userInfo?.maxDeposit / 1e18)}</h1>
                             <p>Major Performance</p>
                         </Col>
                         <Col xs="6" lg="3" id="myTeamCol">
-                            <h1 style={{ color: "orange" }}>{minor}</h1>
+                            <h1 >{minor}</h1>
                             <p>Miner Performance</p>
-                        </Col>
+                        </Col> */}
                     </Row>
                 </Container>
 

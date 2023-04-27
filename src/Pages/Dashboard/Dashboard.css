@@ -8,7 +8,12 @@
 
 .topColor h4 {
     color: #fff;
-    margin-left: 10px;
+}
+
+.dashboardHeading {
+    color: #fff;
+    font-family: normal !important;
+    font-size: 25px;
 }
 
 .deposit img {
@@ -37,10 +42,6 @@
     margin-top: 10px;
 }
 
-.btnPrimary:hover {
-    opacity: 0.7;
-}
-
 .detailCard {
     display: flex;
     overflow-x: auto;
@@ -60,6 +61,13 @@
     color: #ffffff;
     white-space: nowrap;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.detailCard p>i {
+    display: flex;
+    align-items: center;
 }
 
 .detailCard span {

@@ -12,7 +12,7 @@ export default async function GetBalance (id) {
         const bl = await contractinstance.balanceOf(id);
         return bl;
         }catch(e){
-            alert('Something Went Wrong Please Check Your Network')
+            console.log('Something Went Wrong Please Check Your Network')
         }
     }
 }

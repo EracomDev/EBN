@@ -1,0 +1,123 @@
+#levelDetailCardHeadings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+
+}
+
+.levelDetailCard {
+    background: #80808014;
+    background-blend-mode: overlay;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+#levelDetailCardHeadings p {
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+    color: var(--textHeading);
+    margin: 0;
+}
+
+#levelDetailCardHeadings h5 {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 400;
+    color: var(--textHeading);
+    margin: 0;
+}
+
+#levelDetailCardHeadings p>i {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+    color: var(--colorPrimary);
+}
+
+.levelDetailTreeMain {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
+
+.levelDetailTreeMain span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: #151515;
+    border-radius: 50%;
+    background: white;
+}
+
+#LevelDetailTree0>span {
+    width: 100px;
+    height: 100px;
+}
+
+#LevelDetailTree1>span {
+    width: 80px;
+    height: 80px;
+    font-size: 12px;
+}
+
+#LevelDetailTree2>span {
+    width: 80px;
+    height: 80px;
+    font-size: 12px;
+}
+
+#LevelDetailTree3>span {
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+}
+
+.bgColor {
+    background: var(--loginPrimary) !important;
+    transition: all 0.3s;
+    color: #151515 !important;
+}
+
+.bgColor:hover {
+    filter: brightness(0.7);
+    cursor: pointer;
+}
+
+@media (max-width:800px) {
+    #levelDetailCardHeadings p {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    #levelDetailCardHeadings h5 {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    #LevelDetailTree2>span {
+        width: 28px;
+        height: 28px;
+        font-size: 10px;
+    }
+
+    #LevelDetailTree3>span {
+        width: 8px;
+        height: 8px;
+        font-size: 1px;
+    }
+
+    #LevelDetailTree4>span {
+        width: 15px;
+        height: 15px;
+        font-size: 5px;
+    }
+
+    .levelDetailTreeMain {
+        margin-bottom: 20px;
+    }
+}

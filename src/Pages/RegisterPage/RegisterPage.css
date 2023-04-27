@@ -55,12 +55,12 @@
     width: 100%;
     font-size: 18px;
     padding: 12px;
-    border: 1px solid var(--colorPrimary);
+    border: 1px solid var(--loginPrimary);
     border-radius: 10px;
     text-align: center;
     outline: none;
     font-weight: 400;
-    background: rgb(224 194 115 / 35%);
+    background: rgba(207, 199, 83, 0.35);
     color: white;
 }
 
@@ -110,21 +110,19 @@
     text-transform: uppercase;
     margin: 10px 0px;
     flex: 1;
-    background: linear-gradient(to right,
-            #96792D, #C5A454, #F8E895, #D9BB6E, #F3D67F, #A88D46);
+    background: var(--loginPrimary);
     border: 1px solid transparent;
 }
 
 .bgOrange {
-    background: linear-gradient(to right,
-            #96792D, #C5A454, #F8E895, #D9BB6E, #F3D67F, #A88D46);
+    background: var(--loginPrimary);
 
 }
 
 .viewing:hover {
     background: transparent;
-    color: #C5A454;
-    border-color: #C5A454;
+    color: var(--loginPrimary);
+    border-color: var(--loginPrimary);
 
 }
 
@@ -221,23 +219,22 @@
     border: none;
     text-transform: uppercase;
     margin: 10px 0px;
-    background: linear-gradient(to right,
-            #96792D, #C5A454, #F8E895, #D9BB6E, #F3D67F, #A88D46);
+    background: var(--loginPrimary);
     border: 1px solid transparent;
     transition: background 0.4s;
 }
 
 .btnConnect:hover {
-    border-color: var(--colorPrimary);
-    color: var(--colorPrimary);
+    border-color: var(--loginPrimary);
+    color: var(--loginPrimary);
     background: transparent;
 
 }
 
 #connectButtonAddress {
-    color: #f6e592;
+    color: var(--loginPrimary);
     font-size: 16px;
-    border: 1px solid #f6e592;
+    border: 1px solid var(--loginPrimary);
     padding: 8px 20px;
     border-radius: 40px;
     display: flex;

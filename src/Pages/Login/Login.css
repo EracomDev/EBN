@@ -1,6 +1,5 @@
 .loginBtn {
-    background: linear-gradient(to right,
-            #96792D, #C5A454, #F8E895, #D9BB6E, #F3D67F, #A88D46);
+    background: var(--loginPrimary);
     color: rgb(0, 0, 0) !important;
     font-weight: 600;
     font-size: 16px;
@@ -16,8 +15,8 @@
 
 .loginBtn:hover {
     background: transparent;
-    color: var(--colorPrimary) !important;
-    border-color: var(--colorPrimary);
+    color: var(--loginPrimary) !important;
+    border-color: var(--loginPrimary);
 }
 
 .connectLoginLeft h4 {

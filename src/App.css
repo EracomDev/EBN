@@ -9,6 +9,7 @@
   --colorPrimaryTheme: #D8BC6B;
   --colorSecondary: #D8BC6B;
   --textColor: #ffffff;
+  --textHeading: white;
 }
 
 .App-logo {
@@ -19,6 +20,18 @@
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+#parentSection {
+  padding: 10px;
+  padding-top: 80px;
+}
+
+@media (max-width:768px) {
+  #parentSection {
+    padding: 0px;
+    padding-top: 80px;
   }
 }
 
@@ -101,15 +114,8 @@
   font-family: 'Times New Roman', serif;
   letter-spacing: 5px;
   font-weight: bold;
-  background-image: linear-gradient(to right,
-      #462523 0,
-      #cb9b51 22%,
-      #f6e27a 45%,
-      #f6f2c0 50%,
-      #f6e27a 55%,
-      #cb9b51 78%,
-      #462523 100%);
-  color: transparent;
+  color: var(--loginPrimary);
+  /* color: transparent; */
   -webkit-background-clip: text;
   background-clip: text;
   margin-bottom: 25px;
@@ -292,18 +298,21 @@
   width: 165px;
   height: 165px;
   -webkit-animation: spin 12s linear 0s infinite;
+  animation: spin 12s linear 0s infinite;
 }
 
 .venus-orbit {
   width: 120px;
   height: 120px;
   -webkit-animation: spin 7.4s linear 0s infinite;
+  animation: spin 7.4s linear 0s infinite;
 }
 
 .mercury-orbit {
   width: 90px;
   height: 90px;
   -webkit-animation: spin 3s linear 0s infinite;
+  animation: spin 3s linear 0s infinite;
 }
 
 .planet {
@@ -335,6 +344,7 @@
   height: 165px;
   border: 1px solid #91daffa5;
   -webkit-animation: spin3D 3s linear .2s infinite;
+  animation: spin3D 3s linear .2s infinite;
 }
 
 .green-orbit {
@@ -342,6 +352,7 @@
   height: 120px;
   border: 1px solid #91ffbfa5;
   -webkit-animation: spin3D 2s linear 0s infinite;
+  animation: spin3D 2s linear 0s infinite;
 }
 
 .red-orbit {
@@ -349,6 +360,7 @@
   height: 90px;
   border: 1px solid #ffca91a5;
   -webkit-animation: spin3D 1s linear 0s infinite;
+  animation: spin3D 1s linear 0s infinite;
 }
 
 .white-orbit {
@@ -356,6 +368,7 @@
   height: 60px;
   border: 2px solid #ffffff;
   -webkit-animation: spin3D 10s linear 0s infinite;
+  animation: spin3D 10s linear 0s infinite;
 }
 
 .w1 {

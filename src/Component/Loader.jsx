@@ -1,19 +1,22 @@
 import React from 'react'
+import './Loader.css'
 const Loader = () => {
     return (
-        <div class="spinner-box">
-            <div class="blue-orbit leo">
-            </div>
-
-            <div class="green-orbit leo">
-            </div>
-
-            <div class="red-orbit leo">
-            </div>
-
-            <div class="white-orbit w1 leo">
-            </div><div class="white-orbit w2 leo">
-            </div><div class="white-orbit w3 leo">
+        <div className="spinner-box">
+            <div className="scene">
+                <div className="cube-wrapper">
+                    <div className="cube">
+                        <div className="cube-faces">
+                            <div className="cube-face shadow d-flex align-items-center justify-content-center" style={{ color: "white" }}>E B N</div>
+                            <div className="cube-face bottom d-flex align-items-center justify-content-center" style={{ color: "white" }}>E B N</div>
+                            <div className="cube-face top d-flex align-items-center justify-content-center" style={{ color: "white", margin: "auto" }}>E B N</div>
+                            <div className="cube-face left d-flex align-items-center justify-content-center" style={{ color: "white" }}>E B N</div>
+                            <div className="cube-face right d-flex align-items-center justify-content-center" style={{ color: "white" }}>E B N</div>
+                            <div className="cube-face back d-flex align-items-center justify-content-center" style={{ color: "white" }}>E B N</div>
+                            <div className="cube-face front d-flex align-items-center justify-content-center" style={{ color: "white" }}>E B N</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )

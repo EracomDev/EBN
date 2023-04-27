@@ -1,40 +1,22 @@
-import { BigNumber, ethers } from 'ethers';
-import React from 'react'; 
+import {ethers } from 'ethers';
 import ContractDetails from '../Contracts/ContractDetails';
 
     
-export default async function UserInfo (id , func = "") {
+export default async function UserInfo (id) {
+try{
     const { ethereum } = window;
     if (ethereum) {
-            try{
             const { ethereum } = window;
             const provider = new ethers.providers.Web3Provider(ethereum);
             const signer = provider.getSigner();
-            const contractinstance = new ethers.Contract(ContractDetails.contract, ContractDetails.contractABI, signer); 
-        if(func==""){                      
-            const userInfo = await contractinstance.userInfo(id);
-            const incomeInfo = [];//await contractinstance.incomeInfo(id);
-            const EarningInfo = [];//await contractinstance.EarningInfo(id);
-
-            const inc = await contractinstance.total_users.call();
-            //console.log("signera : " + userInfo);
-
-            return {userInfo:userInfo,incomeInfo:incomeInfo,EarningInfo:EarningInfo,total_users:inc};
-            
-        }else if(func=='userinfo'){
-            const userInfo = await contractinstance.userInfo(id);
-            return {userInfo:userInfo};
-        
-        }else{
-            return [];
-        }
-    }catch(e){
-        console.log(e)
+            const contractinstance = new ethers.Contract(ContractDetails.contract, ContractDetails.contractABI, signer);
+                const userData = await contractinstance.users(id);
+                console.log('userData 1111',userData)
+                return userData;
     }
-
-    }else{
-        return [];
-    } 
+}catch(e){
+    console.log(e)
+}
         
 }
  

@@ -9,6 +9,7 @@ import IdToAddress from '../../Common/IdToAddress';
 import Loader from '../../Component/Loader';
 import UserInfo from '../../Common/UserInfo';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import AddressToId from '../../Common/AddressToId';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -20,10 +21,10 @@ const Login = () => {
         setLoading(true);
         try {
             const addr = await IdToAddress(viweId);
-            // console.log(addr);
+            console.log(addr);
             if (addr !== '0x0000000000000000000000000000000000000000') {
                 //alert('find');
-                localStorage.setItem("viewId", addr);
+                localStorage.setItem("viewId", viweId);
                 localStorage.setItem("loginBy", 'view');
                 localStorage.setItem('upline', 0);
                 navigate("/dashboard")
@@ -47,15 +48,16 @@ const Login = () => {
                 try {
                     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
                     console.log("Found an account! Address: ", accounts[0]);
-                    const userInfo = await UserInfo(accounts[0]);
-                    if (userInfo.userInfo.id > 0) {
-                        localStorage.setItem("viewId", accounts[0]);
+                    let idd = await AddressToId(accounts[0]);
+                    const userInfo = await UserInfo(idd);
+                    if (userInfo?.id > 0) {
+                        localStorage.setItem("viewId", idd);
                         localStorage.setItem("loginBy", 'automatic');
                         localStorage.setItem('upline', 1);
                         navigate("/dashboard");
                         setLoading(false);
                     } else {
-                        setMsg(<span className='text-danger'>Not Exist</span>);
+                        setMsg(<span className='text-danger'>User Not Exist</span>);
                         setLoading(false);
                     }
                 }
@@ -72,6 +74,16 @@ const Login = () => {
             setLoading(false);
         }
     }
+    useEffect(() => {
+        const viewInput = document.getElementById('viewInput');
+        viewInput.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("viewBtn").click();
+            }
+        });
+    }, [])
+
     return (
         <>
             {
@@ -94,9 +106,9 @@ const Login = () => {
                             </Col>
                             <Col md='6' className="connectRegisterRight connectLoginRight connectRegisterLeft connectLoginLeft" >
                                 <h3 className='heading' style={{ color: 'white' }}>Login to your personal account</h3>
-                                <input type="text" onChange={(e) => setViewId(e.target.value)} placeholder="Enter User ID." />
+                                <input id="viewInput" type="text" onChange={(e) => setViewId(e.target.value)} placeholder="Enter User ID." />
                                 <div className="registerButtons">
-                                    <button className="viewing bgOrange" onClick={viewLogin}>View</button>
+                                    <button className="viewing bgOrange" id="viewBtn" onClick={viewLogin}>View</button>
                                 </div>
                                 <p style={{ color: 'white' }}>To access all the functions of your personal account use Auto Login</p>
                                 <Link className="loginBtn" onClick={automaticLogin}>Automatic Login</Link>
