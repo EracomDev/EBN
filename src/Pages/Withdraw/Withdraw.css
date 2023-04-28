@@ -91,3 +91,14 @@
 .colSky {
     background: #47aef7 !important;
 }
+
+@media (max-width:768px) {
+    .dashboardHeading {
+        margin-bottom: 0px;
+        font-size: 20px;
+    }
+
+    .programTopHeading h1 {
+        margin-bottom: 0;
+    }
+}

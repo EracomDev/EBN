@@ -2,8 +2,8 @@ import React from 'react'
 import { RiMoneyDollarCircleFill } from 'react-icons/ri'
 import { MdPeopleAlt, } from 'react-icons/md'
 const ProgramLevelCard = (props) => {
-    localStorage.setItem('levelDetailIncome', parseFloat(props.income / 1e18).toFixed(2));
-    localStorage.setItem('levelDetailCycle', props.cycleNum);
+    // localStorage.setItem('levelDetailIncome', parseFloat(props.income / 1e18).toFixed(2));
+    // localStorage.setItem('levelDetailCycle', props.cycleNum);
     // localStorage.setItem('levelDetailUsers', props?.users);
     // localStorage.setItem('levelDetailCycle', props.cycle)
     return (

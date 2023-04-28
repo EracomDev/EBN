@@ -9,7 +9,7 @@ const PoolCard = (props) => {
                 {/* <div className="cardImg"><i><props.img /></i></div> */}
                 <div className="cardText">
                     <p>{props.title}</p>
-                    <h4>$ 0.00</h4>
+                    <h4>$ {props.price}</h4>
                 </div>
             </div>
         </React.Fragment>

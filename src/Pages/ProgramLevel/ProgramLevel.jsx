@@ -43,6 +43,11 @@ const ProgramLevel = () => {
             }
         }
     }
+    const SetProgramLevel = (cycleNum, income, users) => {
+        localStorage.setItem('levelDetailIncome', parseFloat(income / 1e18).toFixed(2));
+        localStorage.setItem('levelDetailCycle', cycleNum);
+        localStorage.setItem('levelDetailUsers', users);
+    }
 
     return (
         <>
@@ -54,14 +59,14 @@ const ProgramLevel = () => {
 
                 <div className='programTopHeading'>
                     <h4 className='dashboardHeading'>EBN Slot {slotNumber}</h4>
-                    <h1>{parseFloat(incomes?.poolIncome).toFixed(2)} <span>USDT</span></h1>
+                    <h1>{parseFloat(incomes?.poolIncome / 1e18).toFixed(2)} <span>USDT</span></h1>
                 </div>
                 <div>
                     <Row className='prCard'>
                         {
                             cycleCount > 0 ?
                                 [...Array(cycleCount)].map((x, i) =>
-                                    <Col lg='3' md="4" sm="6" xs="12"><Link to="/dashboard/level_details"><ProgramLevelCard
+                                    <Col lg='3' md="4" sm="6" xs="12"><Link to="/dashboard/level_details" onClick={() => SetProgramLevel(i + 1, cycleInfo[0]?.[i], cycleInfo[1]?.[i])} ><ProgramLevelCard
                                         cycleNum={i + 1} income={cycleInfo[0]?.[i]} users={cycleInfo[1]?.[i]} /></Link></Col>
                                 ) :
                                 <div id="nodata" >

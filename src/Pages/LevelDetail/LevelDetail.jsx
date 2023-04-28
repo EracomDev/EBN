@@ -5,7 +5,6 @@ import { MdPeopleAlt, } from 'react-icons/md'
 import Change from '../../Common/StringToSub'
 import Loader from '../../Component/Loader'
 import { Container } from 'react-bootstrap'
-import { FaUserAlt } from 'react-icons/fa';
 import GetPoolUser from '../../Common/GetPoolUser'
 import CycleIds from '../../Common/CycleIds'
 const LevelDetails = () => {
@@ -44,10 +43,10 @@ const LevelDetails = () => {
             <Container fluid >
                 <section className="dashboard">
                     <p className='topId'><span>
-                        ID: {Change(acc)} / Slot {slotNumber} / </span>Cycle 0</p>
+                        ID: {Change(acc)} / Slot {slotNumber} / </span>Cycle {cycleNum}</p>
 
                     <div className='programTopHeading'>
-                        <h1>Cycle 0</h1>
+                        <h1>Cycle {cycleNum}</h1>
                     </div>
 
                     <div className="levelDetailCard">

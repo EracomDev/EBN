@@ -86,42 +86,42 @@ const Dashboard = () => {
                                 img={GiStarSwirl}
                                 title="Direct Income"
                                 // price={parseFloat(incomes?.directIncome / 1e18)}
-                                price={parseFloat(0)}
+                                price={parseFloat(0).toFixed(2)}
                             />
                         </Col>
                         <Col lg="2" md="2" xs="6" className="p-2">
                             <PoolCard
                                 img={GiStarSwirl}
                                 title="Pool Income"
-                                price={parseFloat(incomes?.poolIncome / 1e18)}
+                                price={parseFloat(incomes?.poolIncome / 1e18).toFixed(2)}
                             />
                         </Col>
                         <Col lg="2" md="2" xs="6" className="p-2">
                             <PoolCard
                                 img={GiStarSwirl}
                                 title="Global Club 1"
-                                price={parseFloat(incomes?.Royalty1Income / 1e18)}
+                                price={parseFloat(incomes?.Royalty1Income / 1e18).toFixed(2)}
                             />
                         </Col>
                         <Col lg="2" md="2" xs="6" className="p-2">
                             <PoolCard
                                 img={GiStarSwirl}
                                 title="Global Club 2"
-                                price={parseFloat(incomes?.Royalty2Income / 1e18)}
+                                price={parseFloat(incomes?.Royalty2Income / 1e18).toFixed(2)}
                             />
                         </Col>
                         <Col lg="2" md="2" xs="6" className="p-2">
                             <PoolCard
                                 img={GiStarSwirl}
                                 title="Team Club"
-                                price={parseFloat(incomes?.clubRoyaltyIncome / 1e18)}
+                                price={parseFloat(incomes?.clubRoyaltyIncome / 1e18).toFixed(2)}
                             />
                         </Col>
                         <Col lg="2" md="2" xs="6" className="p-2">
                             <PoolCard
                                 img={GiStarSwirl}
                                 title="Generation Income"
-                                price={parseFloat(incomes?.directIncome / 1e18)}
+                                price={parseFloat(incomes?.directIncome / 1e18).toFixed(2)}
                             />
                         </Col>
                     </Row>
@@ -166,7 +166,6 @@ const Dashboard = () => {
 
             <Container fluid className="p-2">
                 <div id="detailCardContainer">
-
                     <div className="detailCard">
                         <p><i><MdAccountBalanceWallet /></i>BNB Balance :</p>
                         <span>{parseFloat(maticBalance / 1e18).toFixed(5)}</span>
@@ -182,7 +181,6 @@ const Dashboard = () => {
                     <div className="detailCard">
                         <p><i><BsPersonPlusFill /></i>Sponsor :</p>
                         <span id="refLink">{userDetails?.referrer}</span>
-
                     </div>
                     <div className="detailCard">
                         <p className='d-none ' id="myLink">{userDetails?.id != 0 ? window.location.origin + '/?ref=' + userDetails?.id : 'Not Register'}</p>

@@ -4,11 +4,10 @@ import { useNavigate } from "react-router-dom"
 import { ethers } from 'ethers';
 import { useSelector } from 'react-redux'
 import Loader from '../../Component/Loader';
-import IdToAddress from '../../Common/IdToAddress';
-import GetBalance from '../../Common/GetBalance';
-import GetMaticBalance from '../../Common/GetMaticBalance';
 import UserInfo from '../../Common/UserInfo';
 import AddressToId from '../../Common/AddressToId';
+import IdToAddress from '../../Common/IdToAddress';
+import GetBalance from '../../Common/GetBalance';
 const RegisterPage = () => {
     const navigate = useNavigate();
     const [spons, setSponsor] = useState("");
@@ -20,6 +19,7 @@ const RegisterPage = () => {
     const [msg, setMsg] = useState("");
     const { ethereum } = window
     useEffect(() => {
+
         let len = window.location.href.length;
         const after = window.location.search.slice(window.location.search.indexOf('=') + 1);
         console.log("url here", after);
@@ -130,8 +130,6 @@ const RegisterPage = () => {
         }
     }
 
-
-
     useEffect(() => {
         const viewInput = document.getElementById('sponsor');
         viewInput.addEventListener("keypress", function (event) {
@@ -140,7 +138,22 @@ const RegisterPage = () => {
                 document.getElementById("registerBtn").click();
             }
         });
-    }, [])
+    }, []);
+
+    async function CheckBeforeRegister() {
+        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+        let bal = await GetBalance(accounts[0]);
+        let balance = parseFloat(bal / 1e18)
+
+        console.log('balance', balance)
+        if (balance >= 70) {
+            increaseAllowance();
+        }
+        else {
+            setMsg(<span className='text-danger'>Insufficient Fund</span>);
+        }
+    }
+
     return (
         <>
             {
@@ -151,7 +164,7 @@ const RegisterPage = () => {
 
                 <input type="text" placeholder="Enter Sponsor ID." value={spons} onChange={(e) => setSponsor(e.target.value)} id="sponsor" />
                 <div className="registerButtons">
-                    <button className="viewing bgOrange" id="registerBtn" onClick={increaseAllowance}>Register</button>
+                    <button className="viewing bgOrange" id="registerBtn" onClick={CheckBeforeRegister}>Register</button>
                 </div>
 
             </div>
