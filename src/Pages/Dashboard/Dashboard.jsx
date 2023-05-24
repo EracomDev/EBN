@@ -86,7 +86,7 @@ const Dashboard = () => {
                                 img={GiStarSwirl}
                                 title="Direct Income"
                                 // price={parseFloat(incomes?.directIncome / 1e18)}
-                                price={parseFloat(0).toFixed(2)}
+                                price={parseFloat(incomes?.levelIncome / 1e18).toFixed(2)}
                             />
                         </Col>
                         <Col lg="2" md="2" xs="6" className="p-2">
