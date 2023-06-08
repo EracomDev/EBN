@@ -35,7 +35,7 @@ const MyTeam = () => {
             setLoading(false)
         } catch (e) {
             setLoading(false)
-            console.log(e)
+            console.log(e);
         }
     }
     return (
@@ -50,10 +50,6 @@ const MyTeam = () => {
                         <p><i><ImLocation2 /></i>Contract Address :</p>
                         <span>{contract}</span>
                     </div>
-                    {/* <div className="detailCard">
-                        <p><i><BiTime /></i>Platform Running time :</p>
-                        <span>{TimestampToDate(String(planInfo?.startTime), 1)}</span>
-                    </div> */}
                     <div className="detailCard">
                         <p><i><ImConnection /></i>Connection status :</p>
                         {
@@ -65,37 +61,26 @@ const MyTeam = () => {
                 </Container>
                 <Container>
                     <Row id="myTeamRow">
-                        {
-                            console.log('userInformation', userInformation)
-                        }
                         <Col xs="6" lg="3" id="myTeamCol">
                             <h1 style={{ color: "#1f818b" }}>{String(userInformation?.directs)}</h1>
                             <p>Direct Referrals</p>
                         </Col>
                         <Col xs="6" lg="3" id="myTeamCol">
-                            <h1 >{userInformation.club_royalty_status === true ? 'Archive' : 'Pending'}</h1>
+                            <h1 >{userInformation?.club_royalty_status === true ? 'Archive' : 'Pending'}</h1>
                             <p>Club Royalty Status</p>
                         </Col>
                         <Col xs="6" lg="3" id="myTeamCol">
-                            <h1 >{userInformation.global_club1_status === true ? 'Archive' : 'Pending'}</h1>
+                            <h1 >{userInformation?.global_club1_status === true ? 'Archive' : 'Pending'}</h1>
                             <p>Global Club1 Status</p>
                         </Col>
                         <Col xs="6" lg="3" id="myTeamCol">
-                            <h1 >{userInformation.global_club2_status === true ? 'Archive' : 'Pending'}</h1>
+                            <h1 >{userInformation?.global_club2_status === true ? 'Archive' : 'Pending'}</h1>
                             <p>Global Club2 Status</p>
                         </Col>
                         <Col xs="6" lg="3" id="myTeamCol">
                             <h1 style={{ color: "blue" }}>{parseFloat(userInformation?.totalDeposit / 1e18).toFixed(2)}</h1>
                             <p>Sales</p>
                         </Col>
-                        {/* <Col xs="6" lg="3" id="myTeamCol">
-                            <h1 >{String(userInformation?.userInfo?.maxDeposit / 1e18)}</h1>
-                            <p>Major Performance</p>
-                        </Col>
-                        <Col xs="6" lg="3" id="myTeamCol">
-                            <h1 >{minor}</h1>
-                            <p>Miner Performance</p>
-                        </Col> */}
                     </Row>
                 </Container>
 
