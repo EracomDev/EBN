@@ -158,7 +158,7 @@ const Dashboard = () => {
                     </div>
 
                     <div className="detailCard">
-                        <p><i><GiTakeMyMoney /></i>My Deposit :</p>
+                        <p><i><GiTakeMyMoney /></i>My Deposit:</p>
                         <span className='d-flex'>{parseFloat(userDetails?.totalDeposit / 1e18).toFixed(2)}<span><CurrencyName /></span></span>
                     </div>
                 </Container></Col>
